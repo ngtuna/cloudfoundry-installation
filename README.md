@@ -53,7 +53,7 @@ $ bosh releases
 ```
 ### Edit CloudFoundry manifest
 <re-use standard manifest>
-
+### Create NAT instance (if don't have)
 ### Deploy CloudFoundry
 ```
 $ bosh deployment <cf-manifest.yml>
