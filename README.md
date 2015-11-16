@@ -29,6 +29,33 @@ $ bosh micro deploy ~/dir-installation/stemcells/bosh-stemcell-2989-aws-xen-ubun
 
 ```
 ## Deploy CloudFOundry jobs to AWS
-```
 
+### Target to BOSH
+```
+$ bosh target https://<BOSH_public_IP>:25555
+username: admin
+password: admin
+```
+### Upload stemcell
+```
+$ bosh upload stemcells ~/dir-installation/stemcells/bosh-stemcell-2989-aws-xen-ubuntu-trusty-go_agent.tgz
+```
+### Upload CF-release v212
+```
+$ apt-get install -y git
+$ cd ~/dir-installation/
+$ git clone https://github.com/cloudfoundry/cf-release.git
+$ cd cf-release
+$ git checkout tags/v212
+$ bosh upload release releases/cf-212.yml
+### check
+$ bosh releases
+```
+### Edit CloudFoundry manifest
+<re-use standard manifest>
+
+### Deploy CloudFoundry
+```
+$ bosh deployment <cf-manifest.yml>
+$ bosh -n deploy
 ```
