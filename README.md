@@ -54,6 +54,8 @@ $ bosh releases
 ### Edit CloudFoundry manifest
 <re-use standard manifest>
 ### Create NAT instance (if don't have)
+http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html
+
 ### Deploy CloudFoundry
 ```
 $ bosh deployment <cf-manifest.yml>
